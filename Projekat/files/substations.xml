@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<ArrayOfSubstation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Substation>
+    <aliasName>s</aliasName>
+    <description>s</description>
+    <mRID>d402f710</mRID>
+    <name>S2</name>
+    <connectivityNodes>
+      <ConnectivityNode>
+        <aliasName>f</aliasName>
+        <description>f</description>
+        <mRID>c8d46ed4</mRID>
+        <name>N2</name>
+        <x1>472</x1>
+        <y1>183</y1>
+        <x>70</x>
+        <y>47</y>
+        <X>472</X>
+        <Y>183</Y>
+        <m_BaseVoltage>
+          <aliasName>node_c8d46ed4b:f</aliasName>
+          <description>node_c8d46ed4b:f</description>
+          <mRID>7f9472cc-9</mRID>
+          <name>node_c8d46ed4b:N2</name>
+          <ConductingEquipment />
+          <nominalVoltage>22</nominalVoltage>
+        </m_BaseVoltage>
+      </ConnectivityNode>
+    </connectivityNodes>
+    <Equipments />
+    <VoltageLevels>
+      <VoltageLevel>
+        <aliasName>sub_d402f710_vl_s</aliasName>
+        <description>sub_-d402f710-_vl_-s</description>
+        <mRID>sub_-d402f710-_vl_-d402f710</mRID>
+        <name>sub_-d402f710-_vl_-S2</name>
+        <connectivityNodes />
+        <Equipments />
+        <Bays />
+        <BaseVoltage>
+          <aliasName>sub_-d402f710_bv_s</aliasName>
+          <description>sub_-d402f710-_bv_-s</description>
+          <mRID>sub_-d402f710-_bv_-d402f710</mRID>
+          <name>sub_-d402f710-_bv_-S2</name>
+          <ConductingEquipment />
+          <nominalVoltage>22</nominalVoltage>
+        </BaseVoltage>
+      </VoltageLevel>
+    </VoltageLevels>
+    <Bays />
+    <x>372</x>
+    <y>106</y>
+  </Substation>
+  <Substation>
+    <aliasName>s</aliasName>
+    <description>clone_d402f710</description>
+    <mRID>d1a7a2b2</mRID>
+    <name>S2</name>
+    <connectivityNodes />
+    <Equipments />
+    <VoltageLevels>
+      <VoltageLevel>
+        <aliasName>sub_d402f710_vl_s</aliasName>
+        <description>sub_-d402f710-_vl_-s</description>
+        <mRID>sub_-d402f710-_vl_-d402f710</mRID>
+        <name>sub_-d402f710-_vl_-S2</name>
+        <connectivityNodes />
+        <Equipments />
+        <Bays />
+        <BaseVoltage>
+          <aliasName>sub_-d402f710_bv_s</aliasName>
+          <description>sub_-d402f710-_bv_-s</description>
+          <mRID>sub_-d402f710-_bv_-d402f710</mRID>
+          <name>sub_-d402f710-_bv_-S2</name>
+          <ConductingEquipment />
+          <nominalVoltage>22</nominalVoltage>
+        </BaseVoltage>
+      </VoltageLevel>
+    </VoltageLevels>
+    <Bays />
+    <x>5</x>
+    <y>230</y>
+  </Substation>
+  <Substation>
+    <aliasName>s</aliasName>
+    <description>clone_d1a7a2b2</description>
+    <mRID>ff6d48c4</mRID>
+    <name>S2</name>
+    <connectivityNodes>
+      <ConnectivityNode>
+        <aliasName>a</aliasName>
+        <description>a</description>
+        <mRID>b567794c</mRID>
+        <name>a</name>
+        <x1>38</x1>
+        <y1>38</y1>
+        <x>3</x>
+        <y>3</y>
+        <X>38</X>
+        <Y>38</Y>
+        <m_BaseVoltage>
+          <aliasName>node_b567794cb:a</aliasName>
+          <description>node_b567794cb:a</description>
+          <mRID>f87460ae-f</mRID>
+          <name>node_b567794cb:a</name>
+          <ConductingEquipment />
+          <nominalVoltage>22</nominalVoltage>
+        </m_BaseVoltage>
+      </ConnectivityNode>
+    </connectivityNodes>
+    <Equipments />
+    <VoltageLevels>
+      <VoltageLevel>
+        <aliasName>sub_d402f710_vl_s</aliasName>
+        <description>sub_-d402f710-_vl_-s</description>
+        <mRID>sub_-d402f710-_vl_-d402f710</mRID>
+        <name>sub_-d402f710-_vl_-S2</name>
+        <connectivityNodes />
+        <Equipments />
+        <Bays />
+        <BaseVoltage>
+          <aliasName>sub_-d402f710_bv_s</aliasName>
+          <description>sub_-d402f710-_bv_-s</description>
+          <mRID>sub_-d402f710-_bv_-d402f710</mRID>
+          <name>sub_-d402f710-_bv_-S2</name>
+          <ConductingEquipment />
+          <nominalVoltage>22</nominalVoltage>
+        </BaseVoltage>
+      </VoltageLevel>
+    </VoltageLevels>
+    <Bays />
+    <x>5</x>
+    <y>5</y>
+  </Substation>
+</ArrayOfSubstation>

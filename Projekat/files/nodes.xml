@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<ArrayOfConnectivityNode xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ConnectivityNode>
+    <aliasName>f</aliasName>
+    <description>f</description>
+    <mRID>c8d46ed4</mRID>
+    <name>N2</name>
+    <x1>320</x1>
+    <y1>197</y1>
+    <x>3</x>
+    <y>3</y>
+    <X>320</X>
+    <Y>197</Y>
+    <m_BaseVoltage>
+      <aliasName>node_c8d46ed4b:f</aliasName>
+      <description>node_c8d46ed4b:f</description>
+      <mRID>7f9472cc-9</mRID>
+      <name>node_c8d46ed4b:N2</name>
+      <ConductingEquipment />
+      <nominalVoltage>22</nominalVoltage>
+    </m_BaseVoltage>
+  </ConnectivityNode>
+  <ConnectivityNode>
+    <aliasName>a</aliasName>
+    <description>a</description>
+    <mRID>b567794c</mRID>
+    <name>a</name>
+    <x1>38</x1>
+    <y1>38</y1>
+    <x>3</x>
+    <y>3</y>
+    <X>38</X>
+    <Y>38</Y>
+    <m_BaseVoltage>
+      <aliasName>node_b567794cb:a</aliasName>
+      <description>node_b567794cb:a</description>
+      <mRID>f87460ae-f</mRID>
+      <name>node_b567794cb:a</name>
+      <ConductingEquipment />
+      <nominalVoltage>22</nominalVoltage>
+    </m_BaseVoltage>
+  </ConnectivityNode>
+</ArrayOfConnectivityNode>

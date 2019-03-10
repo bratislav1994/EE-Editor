@@ -1,0 +1,2096 @@
+﻿<Window x:Class="Projekat.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projekat"
+        
+        mc:Ignorable="d"
+        
+         Title="Projekat" Closed="Save" Height="500" Width="800" ResizeMode="NoResize" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation ="CenterScreen">
+    <!--<Window.Resources>
+        <ObjectDataProvider x:Key="data"
+                      ObjectType="{x:Type local:Singleton}"
+                      MethodName="Instance" />
+    </Window.Resources>-->
+    <Grid Background="#FF6B90A4">
+
+
+        <Button x:Name="button" Click="Close" Content="" HorizontalAlignment="Left" Margin="770,0,0,0" VerticalAlignment="Top" Height="30" Width="30">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="0.50" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Button.Background>
+                <ImageBrush ImageSource="/Projekat;component/images/shutdown.png" />
+            </Button.Background>
+        </Button>
+        <Button x:Name="button1" Content="Substations&#xa;and&#xa;Nodes" HorizontalAlignment="Left" Margin="18,63,0,0" VerticalAlignment="Top" Height="60" Width="100" Click="OpenTables">
+            <Button.Style>
+                <Style  TargetType="{x:Type Button}">
+                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                    <Setter Property="Background" Value="#FF474444"/>
+                    <Setter Property="BorderBrush" Value="#cccccc"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="Foreground" Value="White"/>
+
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="B"
+        										Background="{TemplateBinding Background}"
+        										BorderBrush="{TemplateBinding BorderBrush}"
+        										BorderThickness="{TemplateBinding BorderThickness}"
+        										SnapsToDevicePixels="true">
+                                    <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+        											VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+        											HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+        											RecognizesAccessKey="True"
+        											SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FF7A7777" />
+                                        <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="Background" Value="#FF99A2A6" />
+                                        <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                    </Trigger>
+                                    <Trigger Property="IsFocused" Value="true">
+                                        <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button x:Name="buttonAc" Content="Lines and&#xa;synchronous&#xa;machine" HorizontalAlignment="Left" Margin="18,123,0,0" VerticalAlignment="Top" Height="60" Width="100" Click="OpenTables2">
+            <Button.Style>
+                <Style  TargetType="{x:Type Button}">
+                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                    <Setter Property="Background" Value="#FF474444"/>
+                    <Setter Property="BorderBrush" Value="#cccccc"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="Foreground" Value="White"/>
+
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="B"
+        										Background="{TemplateBinding Background}"
+        										BorderBrush="{TemplateBinding BorderBrush}"
+        										BorderThickness="{TemplateBinding BorderThickness}"
+        										SnapsToDevicePixels="true">
+                                    <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+        											VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+        											HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+        											RecognizesAccessKey="True"
+        											SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FF7A7777" />
+                                        <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="Background" Value="#FF99A2A6" />
+                                        <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                    </Trigger>
+                                    <Trigger Property="IsFocused" Value="true">
+                                        <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button x:Name="buttonConsumer" Content="Power transformer&#xa;and&#xa;energy consumer" HorizontalAlignment="Left" Margin="18,183,0,0" VerticalAlignment="Top" Height="60" Width="100" Click="OpenTables3">
+            <Button.Style>
+                <Style  TargetType="{x:Type Button}">
+                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                    <Setter Property="Background" Value="#FF474444"/>
+                    <Setter Property="BorderBrush" Value="#cccccc"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="Foreground" Value="White"/>
+
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="B"
+        										Background="{TemplateBinding Background}"
+        										BorderBrush="{TemplateBinding BorderBrush}"
+        										BorderThickness="{TemplateBinding BorderThickness}"
+        										SnapsToDevicePixels="true">
+                                    <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+        											VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+        											HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+        											RecognizesAccessKey="True"
+        											SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FF7A7777" />
+                                        <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="Background" Value="#FF99A2A6" />
+                                        <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                    </Trigger>
+                                    <Trigger Property="IsFocused" Value="true">
+                                        <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button x:Name="buttonGround" Content="Ground&#xa;and&#xa;disconnectors" HorizontalAlignment="Left" Margin="18,243,0,0" VerticalAlignment="Top" Height="60" Width="100" Click="OpenTables4">
+            <Button.Style>
+                <Style  TargetType="{x:Type Button}">
+                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                    <Setter Property="Background" Value="#FF474444"/>
+                    <Setter Property="BorderBrush" Value="#cccccc"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="Foreground" Value="White"/>
+
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="B"
+        										Background="{TemplateBinding Background}"
+        										BorderBrush="{TemplateBinding BorderBrush}"
+        										BorderThickness="{TemplateBinding BorderThickness}"
+        										SnapsToDevicePixels="true">
+                                    <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+        											VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+        											HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+        											RecognizesAccessKey="True"
+        											SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FF7A7777" />
+                                        <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="Background" Value="#FF99A2A6" />
+                                        <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                    </Trigger>
+                                    <Trigger Property="IsFocused" Value="true">
+                                        <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button x:Name="buttonBreaker" Content="Breaker and&#xa;load breaker switch" HorizontalAlignment="Left" Margin="18,303,0,0" VerticalAlignment="Top" Height="60" Width="100" Click="OpenTables5">
+            <Button.Style>
+                <Style  TargetType="{x:Type Button}">
+                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                    <Setter Property="Background" Value="#FF474444"/>
+                    <Setter Property="BorderBrush" Value="#cccccc"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="Foreground" Value="White"/>
+
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="B"
+        										Background="{TemplateBinding Background}"
+        										BorderBrush="{TemplateBinding BorderBrush}"
+        										BorderThickness="{TemplateBinding BorderThickness}"
+        										SnapsToDevicePixels="true">
+                                    <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+        											VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+        											HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+        											RecognizesAccessKey="True"
+        											SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FF7A7777" />
+                                        <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="Background" Value="#FF99A2A6" />
+                                        <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                    </Trigger>
+                                    <Trigger Property="IsFocused" Value="true">
+                                        <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button x:Name="button2" Content="Canvas" HorizontalAlignment="Left" Margin="18,363,0,0" VerticalAlignment="Top" Height="60" Width="100" Click="OpenCanvas">
+            <Button.Style>
+                <Style  TargetType="{x:Type Button}">
+                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                    <Setter Property="Background" Value="#FF474444"/>
+                    <Setter Property="BorderBrush" Value="#cccccc"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="Foreground" Value="White"/>
+
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="B"
+        										Background="{TemplateBinding Background}"
+        										BorderBrush="{TemplateBinding BorderBrush}"
+        										BorderThickness="{TemplateBinding BorderThickness}"
+        										SnapsToDevicePixels="true">
+                                    <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+        											VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+        											HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+        											RecognizesAccessKey="True"
+        											SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FF7A7777" />
+                                        <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="Background" Value="#FF99A2A6" />
+                                        <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                    </Trigger>
+                                    <Trigger Property="IsFocused" Value="true">
+                                        <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <Border Margin="123,63,75,10" x:Name="CanvasBorder" BorderThickness="3" BorderBrush="#555555">
+            <Canvas x:Name="canvasTables" Margin="0,0,0,0" HorizontalAlignment="Left" Width="600">
+
+                <Label x:Name="label" Content="Substations" Canvas.Left="15" Canvas.Top="10" FontSize="26.667"/>
+                <Label x:Name="label6" Content="Nodes" Canvas.Left="15" Canvas.Top="220" FontSize="26.667"/>
+                
+                <Button x:Name="button5" Click="Exit" Content="" HorizontalAlignment="Left" Canvas.Left="565" Canvas.Top="0" VerticalAlignment="Top" Height="30" Width="30">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Opacity" Value="0.50" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Projekat;component/images/exit.png" />
+                    </Button.Background>
+
+                </Button>
+
+                <DataGrid x:Name="substationsDataGrid" CanUserAddRows="false" ItemsSource="{Binding Substations}" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="140" VerticalAlignment="Top" Width="525" SelectionMode="Single" IsReadOnly="True" Foreground="#FF1C3A46" BorderBrush="{x:Null}" Grid.Row="1" Canvas.Left="20" Canvas.Top="68">
+                    <DataGrid.Background>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveBorderColorKey}}"/>
+                    </DataGrid.Background>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="aliasName" Binding="{Binding aliasName}"/>
+                        <DataGridTextColumn Header="description" Binding="{Binding description}"/>
+                        <DataGridTextColumn Header="mRID" Binding="{Binding mRID}"/>
+                        <DataGridTextColumn Header="name" Width="*" Binding="{Binding name}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <DataGrid x:Name="nodesDataGrid" CanUserAddRows="false" ItemsSource="{Binding Nodes}" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="140" VerticalAlignment="Top" Width="525" SelectionMode="Single" IsReadOnly="True" Foreground="#FF1C3A46" BorderBrush="{x:Null}" Canvas.Left="20" Canvas.Top="277">
+                    <DataGrid.Background>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveBorderColorKey}}"/>
+                    </DataGrid.Background>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="aliasName" Binding="{Binding aliasName}"/>
+                        <DataGridTextColumn Header="description" Binding="{Binding description}"/>
+                        <DataGridTextColumn Header="mRID" Binding="{Binding mRID}"/>
+                        <DataGridTextColumn Header="name" Binding="{Binding name}"/>
+                        <DataGridTextColumn Header="nominal voltage" Width="*"  Binding="{Binding m_BaseVoltage.nominalVoltage}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button x:Name="button3_Copy" Content="Create" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="335" Canvas.Top="222" Click="AddNode">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+            							Background="{TemplateBinding Background}"
+            							BorderBrush="{TemplateBinding BorderBrush}"
+            							BorderThickness="{TemplateBinding BorderThickness}"
+            							SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+            								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+            								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+            								RecognizesAccessKey="True"
+            								SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="button4_Copy" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="405" Canvas.Top="222" Click="DeleteNode">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+            							Background="{TemplateBinding Background}"
+            							BorderBrush="{TemplateBinding BorderBrush}"
+            							BorderThickness="{TemplateBinding BorderThickness}"
+            							SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+            								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+            								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+            								RecognizesAccessKey="True"
+            								SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+                <Button x:Name="button3" Content="Create" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="335" Canvas.Top="10" Click="AddSubstation">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+        										Background="{TemplateBinding Background}"
+        										BorderBrush="{TemplateBinding BorderBrush}"
+        										BorderThickness="{TemplateBinding BorderThickness}"
+        										SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+        											VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+        											HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+        											RecognizesAccessKey="True"
+        											SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="button4" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="405" Canvas.Top="10" Click="DeleteSubstation">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+        										Background="{TemplateBinding Background}"
+        										BorderBrush="{TemplateBinding BorderBrush}"
+        										BorderThickness="{TemplateBinding BorderThickness}"
+        										SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+        											VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+        											HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+        											RecognizesAccessKey="True"
+        											SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="buttonClone" Content="Clone" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="475" Canvas.Top="10" Click="CloneSubstation">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+                							Background="{TemplateBinding Background}"
+                							BorderBrush="{TemplateBinding BorderBrush}"
+                							BorderThickness="{TemplateBinding BorderThickness}"
+                							SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+                								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                								RecognizesAccessKey="True"
+                								SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="buttonClone2" Content="Clone" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="475" Canvas.Top="222" Click="CloneNode">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+                							Background="{TemplateBinding Background}"
+                							BorderBrush="{TemplateBinding BorderBrush}"
+                							BorderThickness="{TemplateBinding BorderThickness}"
+                							SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+                								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                								RecognizesAccessKey="True"
+                								SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Canvas>
+        </Border>
+
+
+        <Border Margin="123,63,75,10" x:Name="CanvasBorder2" BorderThickness="3" BorderBrush="#555555">
+            <Canvas x:Name="canvasTables2" Margin="0,0,0,0" HorizontalAlignment="Left" Width="600">
+
+                <Label x:Name="label2" Content="Lines" Canvas.Left="15" Canvas.Top="10" FontSize="26.667"/>
+                <Label x:Name="label7" Content="Synchronous machines" Canvas.Left="15" Canvas.Top="220" FontSize="26.667"/>
+                
+                <Button x:Name="button_1" Click="Exit2" Content="" HorizontalAlignment="Left" Canvas.Left="565" Canvas.Top="0" VerticalAlignment="Top" Height="30" Width="30">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Opacity" Value="0.50" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Projekat;component/images/exit.png" />
+                    </Button.Background>
+
+                </Button>
+
+                <DataGrid x:Name="ACLinesDataGrid" CanUserAddRows="false" ItemsSource="{Binding Lines}" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="140" VerticalAlignment="Top" Width="525" SelectionMode="Single" IsReadOnly="True" Foreground="#FF1C3A46" BorderBrush="{x:Null}" Grid.Row="1" Canvas.Left="20" Canvas.Top="68">
+                    <DataGrid.Background>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveBorderColorKey}}"/>
+                    </DataGrid.Background>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="aliasName" Binding="{Binding aliasName}"/>
+                        <DataGridTextColumn Header="description" Binding="{Binding description}"/>
+                        <DataGridTextColumn Header="mRID" Binding="{Binding mRID}"/>
+                        <DataGridTextColumn Header="name" Binding="{Binding name}"/>
+                        <DataGridTextColumn Header="bch" Binding="{Binding bch}"/>
+                        <DataGridTextColumn Header="gch" Binding="{Binding gch}"/>
+                        <DataGridTextColumn Header="length" Binding="{Binding length}"/>
+                        <DataGridTextColumn Header="r" Binding="{Binding r}"/>
+                        <DataGridTextColumn Header="x" Width="*"  Binding="{Binding x}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <DataGrid x:Name="SynMachineDataGrid" CanUserAddRows="false" ItemsSource="{Binding SynMachines}" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="140" VerticalAlignment="Top" Width="525" SelectionMode="Single" IsReadOnly="True" Foreground="#FF1C3A46" BorderBrush="{x:Null}" Canvas.Left="20" Canvas.Top="277">
+                    <DataGrid.Background>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveBorderColorKey}}"/>
+                    </DataGrid.Background>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="aliasName" Binding="{Binding aliasName}"/>
+                        <DataGridTextColumn Header="description" Binding="{Binding description}"/>
+                        <DataGridTextColumn Header="mRID" Binding="{Binding mRID}"/>
+                        <DataGridTextColumn Header="name" Binding="{Binding name}"/>
+                        <DataGridTextColumn Header="subID" Binding="{Binding substationID}"/>
+                        <DataGridTextColumn Header="baseQ" Binding="{Binding baseQ}"/>
+                        <DataGridTextColumn Header="maxQ" Binding="{Binding maxQ}"/>
+                        <DataGridTextColumn Header="maxU" Binding="{Binding maxU}"/>
+                        <DataGridTextColumn Header="minQ" Binding="{Binding minQ}"/>
+                        <DataGridTextColumn Header="minU" Binding="{Binding minU}"/>
+                        <DataGridTextColumn Header="voltageRegulationRange" Binding="{Binding voltageRegulationRange}"/>
+                        <DataGridTextColumn Header="ratedPowerFactor" Binding="{Binding ratedPowerFactor}"/>
+                        <DataGridTextColumn Header="ratedS" Binding="{Binding ratedS}"/>
+                        <DataGridTextColumn Header="ratedU" Width="*" Binding="{Binding ratedU}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button x:Name="button1_" Content="Create" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="335" Canvas.Top="222" Click="AddSynMachine">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+            							Background="{TemplateBinding Background}"
+            							BorderBrush="{TemplateBinding BorderBrush}"
+            							BorderThickness="{TemplateBinding BorderThickness}"
+            							SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+            								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+            								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+            								RecognizesAccessKey="True"
+            								SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="button2_" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="405" Canvas.Top="222" Click="DeleteSynMachine">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+            							Background="{TemplateBinding Background}"
+            							BorderBrush="{TemplateBinding BorderBrush}"
+            							BorderThickness="{TemplateBinding BorderThickness}"
+            							SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+            								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+            								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+            								RecognizesAccessKey="True"
+            								SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+                <Button x:Name="button3_" Content="Create" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="335" Canvas.Top="10" Click="AddACLine">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+        										Background="{TemplateBinding Background}"
+        										BorderBrush="{TemplateBinding BorderBrush}"
+        										BorderThickness="{TemplateBinding BorderThickness}"
+        										SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+        											VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+        											HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+        											RecognizesAccessKey="True"
+        											SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="button4_" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="405" Canvas.Top="10" Click="DeleteACLine">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+        										Background="{TemplateBinding Background}"
+        										BorderBrush="{TemplateBinding BorderBrush}"
+        										BorderThickness="{TemplateBinding BorderThickness}"
+        										SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+        											VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+        											HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+        											RecognizesAccessKey="True"
+        											SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="button5_" Content="Clone" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="475" Canvas.Top="10" Click="CloneACLine">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+                							Background="{TemplateBinding Background}"
+                							BorderBrush="{TemplateBinding BorderBrush}"
+                							BorderThickness="{TemplateBinding BorderThickness}"
+                							SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+                								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                								RecognizesAccessKey="True"
+                								SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="button6_" Content="Clone" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="475" Canvas.Top="222" Click="CloneSynMachine">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+                							Background="{TemplateBinding Background}"
+                							BorderBrush="{TemplateBinding BorderBrush}"
+                							BorderThickness="{TemplateBinding BorderThickness}"
+                							SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+                								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                								RecognizesAccessKey="True"
+                								SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Canvas>
+        </Border>
+
+
+        <Border Margin="123,63,75,10" x:Name="CanvasBorder3" BorderThickness="3" BorderBrush="#555555">
+            <Canvas x:Name="canvasTables3" Margin="0,0,0,0" HorizontalAlignment="Left" Width="600">
+
+                <Label x:Name="label3" Content="Power transformers" Canvas.Left="15" Canvas.Top="10" FontSize="26.667"/>
+                <Label x:Name="label8" Content="Energy consumers" Canvas.Left="15" Canvas.Top="220" FontSize="26.667"/>
+                
+                <Button x:Name="button_7" Click="Exit3" Content="" HorizontalAlignment="Left" Canvas.Left="565" Canvas.Top="0" VerticalAlignment="Top" Height="30" Width="30">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Opacity" Value="0.50" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Projekat;component/images/exit.png" />
+                    </Button.Background>
+
+                </Button>
+
+                <DataGrid x:Name="PowerTransformerDataGrid" CanUserAddRows="false" ItemsSource="{Binding PowerTransformers}" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="140" VerticalAlignment="Top" Width="525" SelectionMode="Single" IsReadOnly="True" Foreground="#FF1C3A46" BorderBrush="{x:Null}" Grid.Row="1" Canvas.Left="20" Canvas.Top="68">
+                    <DataGrid.Background>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveBorderColorKey}}"/>
+                    </DataGrid.Background>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="aliasName" Binding="{Binding aliasName}"/>
+                        <DataGridTextColumn Header="description" Binding="{Binding description}"/>
+                        <DataGridTextColumn Header="mRID" Binding="{Binding mRID}"/>
+                        <DataGridTextColumn Header="name" Binding="{Binding name}"/>
+                        <DataGridTextColumn Header="substation ID" Binding="{Binding substationID}"/>
+                        <DataGridTextColumn Header="highSideMinOperatingU" Width="*" Binding="{Binding highSideMinOperatingU}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <DataGrid x:Name="ConsumerDataGrid" CanUserAddRows="false" ItemsSource="{Binding Consumers}" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="140" VerticalAlignment="Top" Width="525" SelectionMode="Single" IsReadOnly="True" Foreground="#FF1C3A46" BorderBrush="{x:Null}" Canvas.Left="20" Canvas.Top="277">
+                    <DataGrid.Background>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveBorderColorKey}}"/>
+                    </DataGrid.Background>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="aliasName" Binding="{Binding aliasName}"/>
+                        <DataGridTextColumn Header="description" Binding="{Binding description}"/>
+                        <DataGridTextColumn Header="mRID" Binding="{Binding mRID}"/>
+                        <DataGridTextColumn Header="name" Binding="{Binding name}"/>
+                        <DataGridTextColumn Header="substation id" Binding="{Binding substationID}"/>
+                        <DataGridTextColumn Header="p" Binding="{Binding p}"/>
+                        <DataGridTextColumn Header="pfixed" Binding="{Binding pfixed}"/>
+                        <DataGridTextColumn Header="pfixedPct" Binding="{Binding pfixedPct}"/>
+                        <DataGridTextColumn Header="q" Binding="{Binding q}"/>
+                        <DataGridTextColumn Header="qfixed" Binding="{Binding qfixed}"/>
+                        <DataGridTextColumn Header="qfixedPct" Width="*"  Binding="{Binding qfixedPct}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button x:Name="button7_" Content="Create" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="335" Canvas.Top="222" Click="AddConsumer">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+            							Background="{TemplateBinding Background}"
+            							BorderBrush="{TemplateBinding BorderBrush}"
+            							BorderThickness="{TemplateBinding BorderThickness}"
+            							SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+            								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+            								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+            								RecognizesAccessKey="True"
+            								SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="button8_" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="405" Canvas.Top="222" Click="DeleteConsumer">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+            							Background="{TemplateBinding Background}"
+            							BorderBrush="{TemplateBinding BorderBrush}"
+            							BorderThickness="{TemplateBinding BorderThickness}"
+            							SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+            								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+            								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+            								RecognizesAccessKey="True"
+            								SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+                <Button x:Name="button9_" Content="Create" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="335" Canvas.Top="10" Click="AddPowerTransformer">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+        										Background="{TemplateBinding Background}"
+        										BorderBrush="{TemplateBinding BorderBrush}"
+        										BorderThickness="{TemplateBinding BorderThickness}"
+        										SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+        											VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+        											HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+        											RecognizesAccessKey="True"
+        											SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="button10_" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="405" Canvas.Top="10" Click="DeletePowerTransformer">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+        										Background="{TemplateBinding Background}"
+        										BorderBrush="{TemplateBinding BorderBrush}"
+        										BorderThickness="{TemplateBinding BorderThickness}"
+        										SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+        											VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+        											HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+        											RecognizesAccessKey="True"
+        											SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="button11_" Content="Clone" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="475" Canvas.Top="10" Click="ClonePowerTransformer">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+                							Background="{TemplateBinding Background}"
+                							BorderBrush="{TemplateBinding BorderBrush}"
+                							BorderThickness="{TemplateBinding BorderThickness}"
+                							SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+                								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                								RecognizesAccessKey="True"
+                								SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="button12_" Content="Clone" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="475" Canvas.Top="222" Click="CloneConsumer">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+                							Background="{TemplateBinding Background}"
+                							BorderBrush="{TemplateBinding BorderBrush}"
+                							BorderThickness="{TemplateBinding BorderThickness}"
+                							SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+                								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                								RecognizesAccessKey="True"
+                								SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Canvas>
+        </Border>
+
+
+        <Border Margin="123,63,75,10" x:Name="CanvasBorder4" BorderThickness="3" BorderBrush="#555555">
+            <Canvas x:Name="canvasTables4" Margin="0,0,0,0" HorizontalAlignment="Left" Width="600">
+
+                <Label x:Name="label4" Content="Grounds" Canvas.Left="15" Canvas.Top="10" FontSize="26.667"/>
+                <Label x:Name="label9" Content="Disconnectors" Canvas.Left="15" Canvas.Top="220" FontSize="26.667"/>
+                
+                <Button x:Name="button_8" Click="Exit4" Content="" HorizontalAlignment="Left" Canvas.Left="565" Canvas.Top="0" VerticalAlignment="Top" Height="30" Width="30">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Opacity" Value="0.50" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Projekat;component/images/exit.png" />
+                    </Button.Background>
+
+                </Button>
+
+                <DataGrid x:Name="GroundDataGrid" CanUserAddRows="false" ItemsSource="{Binding Ground}" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="140" VerticalAlignment="Top" Width="525" SelectionMode="Single" IsReadOnly="True" Foreground="#FF1C3A46" BorderBrush="{x:Null}" Grid.Row="1" Canvas.Left="20" Canvas.Top="68">
+                    <DataGrid.Background>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveBorderColorKey}}"/>
+                    </DataGrid.Background>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="aliasName" Binding="{Binding aliasName}"/>
+                        <DataGridTextColumn Header="description" Binding="{Binding description}"/>
+                        <DataGridTextColumn Header="mRID" Binding="{Binding mRID}"/>
+                        <DataGridTextColumn Header="name" Binding="{Binding name}"/>
+                        <DataGridTextColumn Header="substation id" Width="*" Binding="{Binding substationID}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <DataGrid x:Name="DisconnectorDataGrid" CanUserAddRows="false" ItemsSource="{Binding Disconnectors}" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="140" VerticalAlignment="Top" Width="525" SelectionMode="Single" IsReadOnly="True" Foreground="#FF1C3A46" BorderBrush="{x:Null}" Canvas.Left="20" Canvas.Top="277">
+                    <DataGrid.Background>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveBorderColorKey}}"/>
+                    </DataGrid.Background>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="aliasName" Binding="{Binding aliasName}"/>
+                        <DataGridTextColumn Header="description" Binding="{Binding description}"/>
+                        <DataGridTextColumn Header="mRID" Binding="{Binding mRID}"/>
+                        <DataGridTextColumn Header="name" Binding="{Binding name}"/>
+                        <DataGridTextColumn Header="substation id" Binding="{Binding substationID}"/>
+                        <DataGridTextColumn Header="normalOpen" Binding="{Binding normalOpen}"/>
+                        <DataGridTextColumn Header="open" Binding="{Binding open}"/>
+                        <DataGridTextColumn Header="ratedCurrent" Binding="{Binding ratedCurrent}"/>
+                        <DataGridTextColumn Header="retained" Width="*" Binding="{Binding retained}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button x:Name="button13_" Content="Create" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="335" Canvas.Top="222" Click="AddDisconnector">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+            							Background="{TemplateBinding Background}"
+            							BorderBrush="{TemplateBinding BorderBrush}"
+            							BorderThickness="{TemplateBinding BorderThickness}"
+            							SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+            								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+            								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+            								RecognizesAccessKey="True"
+            								SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="button14_" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="405" Canvas.Top="222" Click="DeleteDisconnector">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+            							Background="{TemplateBinding Background}"
+            							BorderBrush="{TemplateBinding BorderBrush}"
+            							BorderThickness="{TemplateBinding BorderThickness}"
+            							SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+            								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+            								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+            								RecognizesAccessKey="True"
+            								SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+                <Button x:Name="button15_" Content="Create" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="335" Canvas.Top="10" Click="AddGround">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+        										Background="{TemplateBinding Background}"
+        										BorderBrush="{TemplateBinding BorderBrush}"
+        										BorderThickness="{TemplateBinding BorderThickness}"
+        										SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+        											VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+        											HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+        											RecognizesAccessKey="True"
+        											SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="button16_" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="405" Canvas.Top="10" Click="DeleteGround">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+        										Background="{TemplateBinding Background}"
+        										BorderBrush="{TemplateBinding BorderBrush}"
+        										BorderThickness="{TemplateBinding BorderThickness}"
+        										SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+        											VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+        											HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+        											RecognizesAccessKey="True"
+        											SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="button17_" Content="Clone" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="475" Canvas.Top="10" Click="CloneGround">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+                							Background="{TemplateBinding Background}"
+                							BorderBrush="{TemplateBinding BorderBrush}"
+                							BorderThickness="{TemplateBinding BorderThickness}"
+                							SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+                								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                								RecognizesAccessKey="True"
+                								SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="button18_" Content="Clone" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="475" Canvas.Top="222" Click="CloneDisconnector">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+                							Background="{TemplateBinding Background}"
+                							BorderBrush="{TemplateBinding BorderBrush}"
+                							BorderThickness="{TemplateBinding BorderThickness}"
+                							SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+                								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                								RecognizesAccessKey="True"
+                								SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Canvas>
+        </Border>
+
+
+        <Border Margin="123,63,75,10" x:Name="CanvasBorder5" BorderThickness="3" BorderBrush="#555555">
+            <Canvas x:Name="canvasTables5" Margin="0,0,0,0" HorizontalAlignment="Left" Width="600">
+
+                <Label x:Name="label5" Content="Breakers" Canvas.Left="15" Canvas.Top="10" FontSize="26.667"/>
+                <Label x:Name="label10" Content="Load break switches" Canvas.Left="15" Canvas.Top="220" FontSize="26.667"/>
+                
+                <Button x:Name="button_9" Click="Exit5" Content="" HorizontalAlignment="Left" Canvas.Left="565" Canvas.Top="0" VerticalAlignment="Top" Height="30" Width="30">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Opacity" Value="0.50" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Projekat;component/images/exit.png" />
+                    </Button.Background>
+
+                </Button>
+
+                <DataGrid x:Name="BreakerDataGrid" CanUserAddRows="false" ItemsSource="{Binding Breakers}" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="140" VerticalAlignment="Top" Width="525" SelectionMode="Single" IsReadOnly="True" Foreground="#FF1C3A46" BorderBrush="{x:Null}" Grid.Row="1" Canvas.Left="20" Canvas.Top="68">
+                    <DataGrid.Background>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveBorderColorKey}}"/>
+                    </DataGrid.Background>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="aliasName" Binding="{Binding aliasName}"/>
+                        <DataGridTextColumn Header="description" Binding="{Binding description}"/>
+                        <DataGridTextColumn Header="mRID" Binding="{Binding mRID}"/>
+                        <DataGridTextColumn Header="name" Binding="{Binding name}"/>
+                        <DataGridTextColumn Header="substation id" Binding="{Binding substationID}"/>
+                        <DataGridTextColumn Header="normalOpen" Binding="{Binding normalOpen}"/>
+                        <DataGridTextColumn Header="open" Binding="{Binding open}"/>
+                        <DataGridTextColumn Header="ratedCurrent" Binding="{Binding ratedCurrent}"/>
+                        <DataGridTextColumn Header="retained" Binding="{Binding retained}"/>
+                        <DataGridTextColumn Header="inTransitTime" Width="*" Binding="{Binding inTransitTime}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <DataGrid x:Name="LoadBreakDataGrid" CanUserAddRows="false" ItemsSource="{Binding LoadBreakers}" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="140" VerticalAlignment="Top" Width="525" SelectionMode="Single" IsReadOnly="True" Foreground="#FF1C3A46" BorderBrush="{x:Null}" Canvas.Left="20" Canvas.Top="277">
+                    <DataGrid.Background>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveBorderColorKey}}"/>
+                    </DataGrid.Background>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="aliasName" Binding="{Binding aliasName}"/>
+                        <DataGridTextColumn Header="description" Binding="{Binding description}"/>
+                        <DataGridTextColumn Header="mRID" Binding="{Binding mRID}"/>
+                        <DataGridTextColumn Header="name" Binding="{Binding name}"/>
+                        <DataGridTextColumn Header="substation id" Binding="{Binding substationID}"/>
+                        <DataGridTextColumn Header="normalOpen" Binding="{Binding normalOpen}"/>
+                        <DataGridTextColumn Header="open" Binding="{Binding open}"/>
+                        <DataGridTextColumn Header="ratedCurrent" Binding="{Binding ratedCurrent}"/>
+                        <DataGridTextColumn Header="retained" Width="*" Binding="{Binding retained}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button x:Name="button19_" Content="Create" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="335" Canvas.Top="222" Click="AddLoadBreaker">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+            							Background="{TemplateBinding Background}"
+            							BorderBrush="{TemplateBinding BorderBrush}"
+            							BorderThickness="{TemplateBinding BorderThickness}"
+            							SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+            								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+            								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+            								RecognizesAccessKey="True"
+            								SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="button20_" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="405" Canvas.Top="222" Click="DeleteLoadBreaker">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+            							Background="{TemplateBinding Background}"
+            							BorderBrush="{TemplateBinding BorderBrush}"
+            							BorderThickness="{TemplateBinding BorderThickness}"
+            							SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+            								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+            								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+            								RecognizesAccessKey="True"
+            								SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+                <Button x:Name="button21_" Content="Create" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="335" Canvas.Top="10" Click="AddBreaker">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+        										Background="{TemplateBinding Background}"
+        										BorderBrush="{TemplateBinding BorderBrush}"
+        										BorderThickness="{TemplateBinding BorderThickness}"
+        										SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+        											VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+        											HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+        											RecognizesAccessKey="True"
+        											SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="button22_" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="405" Canvas.Top="10" Click="DeleteBreaker">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+        										Background="{TemplateBinding Background}"
+        										BorderBrush="{TemplateBinding BorderBrush}"
+        										BorderThickness="{TemplateBinding BorderThickness}"
+        										SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+        											VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+        											HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+        											RecognizesAccessKey="True"
+        											SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="button23_" Content="Clone" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="475" Canvas.Top="10" Click="CloneBreaker">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+                							Background="{TemplateBinding Background}"
+                							BorderBrush="{TemplateBinding BorderBrush}"
+                							BorderThickness="{TemplateBinding BorderThickness}"
+                							SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+                								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                								RecognizesAccessKey="True"
+                								SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="button24_" Content="Clone" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="70" Canvas.Left="475" Canvas.Top="222" Click="CloneLoadBreaker">
+                    <Button.Style>
+                        <Style  TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Background" Value="#FF474444"/>
+                            <Setter Property="BorderBrush" Value="#cccccc"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="B"
+                							Background="{TemplateBinding Background}"
+                							BorderBrush="{TemplateBinding BorderBrush}"
+                							BorderThickness="{TemplateBinding BorderThickness}"
+                							SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+                								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                								RecognizesAccessKey="True"
+                								SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7A7777" />
+                                                <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF99A2A6" />
+                                                <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="true">
+                                                <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Canvas>
+        </Border>
+
+        <Border Margin="123,63,75,10" x:Name="CanvasBorder6" BorderThickness="3" BorderBrush="#555555">
+            <Canvas x:Name="canvas6" AllowDrop="True" Background="#FFEDF2F5" Margin="0,0,0,0" HorizontalAlignment="Left" Height="420" Width="595">
+
+            </Canvas>
+        </Border>
+
+        <Button x:Name="button6" Content="Undo" HorizontalAlignment="Left" Margin="123,8,0,0" VerticalAlignment="Top" Height="50" Width="70" Click="Undo">
+            <Button.Style>
+                <Style  TargetType="{x:Type Button}">
+                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                    <Setter Property="Background" Value="#FF474444"/>
+                    <Setter Property="BorderBrush" Value="#cccccc"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="Foreground" Value="White"/>
+
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="B"
+        										Background="{TemplateBinding Background}"
+        										BorderBrush="{TemplateBinding BorderBrush}"
+        										BorderThickness="{TemplateBinding BorderThickness}"
+        										SnapsToDevicePixels="true">
+                                    <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+        											VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+        											HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+        											RecognizesAccessKey="True"
+        											SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FF7A7777" />
+                                        <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="Background" Value="#FF99A2A6" />
+                                        <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                    </Trigger>
+                                    <Trigger Property="IsFocused" Value="true">
+                                        <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button x:Name="button7" Content="Redo" HorizontalAlignment="Left" Margin="193,8,0,0" VerticalAlignment="Top" Height="50" Width="70" Click="Redo">
+            <Button.Style>
+                <Style  TargetType="{x:Type Button}">
+                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                    <Setter Property="Background" Value="#FF474444"/>
+                    <Setter Property="BorderBrush" Value="#cccccc"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="Foreground" Value="White"/>
+
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="B"
+        										Background="{TemplateBinding Background}"
+        										BorderBrush="{TemplateBinding BorderBrush}"
+        										BorderThickness="{TemplateBinding BorderThickness}"
+        										SnapsToDevicePixels="true">
+                                    <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+        											VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+        											HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+        											RecognizesAccessKey="True"
+        											SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FF7A7777" />
+                                        <Setter Property="BorderBrush" Value="#FF80BBD1" />
+
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="Background" Value="#FF99A2A6" />
+                                        <Setter Property="BorderBrush" Value="#1ba1e2"/>
+
+                                    </Trigger>
+                                    <Trigger Property="IsFocused" Value="true">
+                                        <Setter TargetName="B" Property="BorderBrush" Value="#FF73C3EA" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+    </Grid>
+</Window>

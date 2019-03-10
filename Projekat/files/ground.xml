@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<ArrayOfGround xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Ground>
+    <aliasName>a</aliasName>
+    <description>a</description>
+    <mRID>869e8028</mRID>
+    <name>a</name>
+    <substationID>f770557e</substationID>
+  </Ground>
+</ArrayOfGround>
